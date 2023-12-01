@@ -13,6 +13,7 @@
     --background-grid-color: #d3d3d3;
     --background-gradient-top: #e7e7e7;
     --background-gradient-bottom: #1a1a1a;
+    --button-text-color: #FFF;
 }
 
 :root.theme-dark {
@@ -23,6 +24,7 @@
     --background-grid-color: #000;
     --background-gradient-top: #007f0c;
     --background-gradient-bottom: #004306;
+    --button-text-color: #00CC14;
 }
 
 @media (prefers-color-scheme: dark) {
