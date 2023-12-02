@@ -29,14 +29,9 @@
     transform: scale(1);
   }
 
-  50% {
-    transform-origin: center;
-    transform: scale(1.5);
-  }
-
   100% {
     transform-origin: center;
-    transform: scale(1);
+    transform: scale(1.5);
   }
 }
 
@@ -45,11 +40,76 @@
     opacity: 0;
   }
 
-  50% {
+  100% {
     opacity: 1;
   }
+}
 
-  100% {
-    opacity: 0;
-  }
+/*Стили для иконки сердца*/
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+/*HOVER*/
+
+.like-icon:hover .core {
+  fill: var(--themes-main-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--themes-main-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*ACTIVE*/
+
+.like-icon:active .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*CLICK*/
+
+.like-icon.is-liked .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: heartClick 0.3s 0.1s 2 alternate ease-in;
+}
+
+.like-icon.is-liked .sparks {
+  animation: heartSparks 0.3s 0.3s 2 alternate ease-in;
+}
+
+.contour {
+  transition: fill 0.1s linear;
 }

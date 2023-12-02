@@ -6,35 +6,78 @@
 */
 
 :root.theme-light {
-    --font-weight-text: 400;
-    --font-weight-title: 700;
-    --themes-main-color: #000;
-    --themes-background: #FFF;
-    --background-grid-color: #d3d3d3;
-    --background-gradient-top: #e7e7e7;
-    --background-gradient-bottom: #1a1a1a;
-    --button-text-color: #FFF;
+  --font-weight-text: 400;
+  --font-weight-title: 700;
+  --themes-main-color: #000;
+  --themes-background: #fff;
+  --background-grid-color: #d3d3d3;
+  --background-gradient-top: #e7e7e7;
+  --background-gradient-bottom: #1a1a1a;
+  --button-text-color: #fff;
+  --background-image: repeating-linear-gradient(
+      var(--background-grid-color) 0px 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--background-grid-color) 0px 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      180deg,
+      var(--background-gradient-top) 0.01%,
+      var(--background-gradient-bottom) 100%
+    );
 }
 
 :root.theme-dark {
+  --font-weight-text: 465;
+  --font-weight-title: 785;
+  --themes-main-color: #00cc14;
+  --themes-background: #000;
+  --background-grid-color: #000;
+  --background-gradient-top: #007f0c;
+  --background-gradient-bottom: #004306;
+  --button-text-color: #00cc14;
+  --background-image: repeating-linear-gradient(
+      var(--background-grid-color) 0px 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--background-grid-color) 0px 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      180deg,
+      var(--background-gradient-top) 0%,
+      var(--background-gradient-bottom) 100%
+    );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
     --font-weight-text: 465;
     --font-weight-title: 785;
-    --themes-main-color: #00CC14;
+    --themes-main-color: #00cc14;
     --themes-background: #000;
     --background-grid-color: #000;
     --background-gradient-top: #007f0c;
     --background-gradient-bottom: #004306;
-    --button-text-color: #00CC14;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --font-weight-text: 465;
-        --font-weight-title: 785;
-        --themes-main-color: #00CC14;
-        --themes-background: #000;
-        --background-grid-color: #000;
-        --background-gradient-top: #007f0c;
-        --background-gradient-bottom: #004306;
-    }
+    --button-text-color: #00cc14;
+    --background-image: repeating-linear-gradient(
+        var(--background-grid-color) 0px 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--background-grid-color) 0px 2px,
+        transparent 2px 4px
+      ),
+      linear-gradient(
+        180deg,
+        var(--background-gradient-top) 0%,
+        var(--background-gradient-bottom) 100%
+      );
+  }
 }

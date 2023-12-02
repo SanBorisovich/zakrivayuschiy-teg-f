@@ -39,6 +39,8 @@
       var(--background-gradient-bottom) 100%
     );
   background-size: cover;
+  background-attachment: fixed;
+  transition: background-image 10s ease;
 }
 
 .header {
@@ -84,7 +86,7 @@
   text-align: start;
   cursor: pointer;
   text-transform: uppercase;
-  transition: 0.6s ease;
+  transition: opacity 0.6s ease;
 }
 
 /*Активный режим*/
@@ -141,6 +143,7 @@
 
 .card__title {
   font-variation-settings: "wght" var(--font-weight-title);
+  font-size: inherit;
   padding: 5px 10px;
   display: flex;
   align-items: center;
@@ -214,13 +217,12 @@
 }
 
 .card__description {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
   padding: 25px;
   border-top: 2px solid var(--themes-main-color);
   line-height: 21px;
-}
-
-.card__description-space {
-  margin-top: 27px;
 }
 
 .card__bottom {
@@ -248,12 +250,9 @@
   transition: border 0.3s ease;
 }
 
-.card__like-button {
+.button__style {
   position: relative;
   appearance: none;
-  inline-size: 130px;
-  block-size: 38px;
-  padding: 9px 17px;
   background-color: transparent;
   border: 2px solid var(--themes-main-color);
   cursor: pointer;
@@ -263,15 +262,21 @@
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button:focus {
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  padding: 9px 17px;
+}
+
+.button__style:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.button__style:focus-visible {
   box-shadow: 2px 2px 0 var(--themes-main-color);
 }
 
-.card__like-button::before {
+.button__style::before {
   position: absolute;
   left: 0;
   content: "";
@@ -281,7 +286,7 @@
   transition: width 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before {
+.button__style:hover::before {
   width: 100%;
 }
 
@@ -293,74 +298,7 @@
   font-size: 14px;
   line-height: 90%;
 }
-/*Стили для иконки сердца*/
 
-.sparks {
-  opacity: 0;
-}
-
-.core {
-  fill: transparent;
-  transition: fill 0.3s 0.03s linear;
-}
-
-.main-body {
-  fill: transparent;
-  transition: 0.3s linear;
-}
-
-/*HOVER*/
-
-.like-icon:hover .core {
-  fill: var(--themes-main-color);
-  transition: 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--themes-main-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-/*ACTIVE*/
-
-.like-icon:active .core {
-  fill: var(--heart-fill-color);
-  transition: 0.3s linear;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-/*CLICK*/
-
-.like-icon.is-liked .core {
-  fill: var(--heart-fill-color);
-  transition: 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-fill-color);
-  transition: fill 0.3s 0.06s;
-}
-
-.like-icon.is-liked .heart {
-  animation: heartClick 0.3s 0.1s ease-in;
-}
-
-.like-icon.is-liked .sparks {
-  animation: heartSparks 0.3s 0.3s ease-in;
-}
-
-.contour {
-  transition: fill 0.1s;
-}
 
 /*Подвал*/
 
@@ -372,45 +310,18 @@
 }
 
 .footer__button {
-  position: relative;
-  appearance: none;
   background-color: var(--themes-background);
-  border: 2px solid var(--themes-main-color);
   padding: 15px 20px;
-  cursor: pointer;
-  display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
-  align-items: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.footer__button:focus {
-  outline: none;
-}
-
-.footer__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--themes-main-color);
-}
-
-.footer__button::before {
-  position: absolute;
-  left: 0;
-  content: "";
-  width: 0%;
-  height: 100%;
-  background-color: var(--themes-main-color);
-  transition: width 0.5s ease-in-out;
-}
-.footer__button:hover::before {
-  width: 100%;
 }
 
 .floppy {
   color: var(--button-text-color);
   fill: currentColor;
   mix-blend-mode: difference;
+  width: 21px; 
+  height:21px;
 }
 
 @media (width <= 375px) {
@@ -420,6 +331,11 @@
 
   .footer__button {
     inline-size: 310px;
+  }
+
+  .floppy {
+    width: 28px; 
+    height: 28px;
   }
 }
 
@@ -472,36 +388,5 @@ dialog:not([open]) {
 }
 
 .dialog__button {
-  position: relative;
-  appearance: none;
   padding: 9px 17px;
-  background-color: transparent;
-  border: 2px solid var(--themes-main-color);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.dialog__button:focus {
-  outline: none;
-}
-
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--themes-main-color);
-}
-
-.dialog__button::before {
-  position: absolute;
-  left: 0;
-  content: "";
-  width: 0%;
-  height: 100%;
-  background-color: var(--themes-main-color);
-  transition: width 0.5s ease-in-out;
-}
-
-.dialog__button:hover::before {
-  width: 100%;
 }

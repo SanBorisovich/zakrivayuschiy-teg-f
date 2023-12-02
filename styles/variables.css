@@ -11,4 +11,18 @@
     --background-gradient-bottom: #1a1a1a;
     --button-text-color: #FFF;
     --heart-fill-color: red;
+    --background-image: repeating-linear-gradient(
+        var(--background-grid-color) 0px 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--background-grid-color) 0px 2px,
+        transparent 2px 4px
+      ),
+      linear-gradient(
+        180deg,
+        var(--background-gradient-top) 0%,
+        var(--background-gradient-bottom) 100%
+      );
 }
