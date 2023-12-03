@@ -89,6 +89,11 @@
   transition: opacity 0.6s ease;
 }
 
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
 /*Активный режим*/
 
 .theme-menu__button:disabled::before {
